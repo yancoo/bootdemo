@@ -2,7 +2,7 @@
 
 ### 功能
 - 集成SpringBoot+SpringSecurity+Postgresql
-- 不使用SpringMVC，RESTful API，json
+- 不使用SpringMVC，RESTful Json API
 - 统一ServiceException异常处理，便于业务逻辑异常编写
 - 支持用户User和角色Role认证授权
 - 上下线Session维护与日志记录
@@ -12,8 +12,9 @@
 
 ### 安装
 - 安装Maven、JDK、Postgresql
-- create database demo;
-- 顺序执行db/init下sql创建库表
+- 创建库表
+  - create database demo;
+  - 顺序执行db/init下sql创建库表
 - 编辑application.properties，确认spring.datasource.*连接参数
 - 编译
   - mvn install
