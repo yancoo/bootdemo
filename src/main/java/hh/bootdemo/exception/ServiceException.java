@@ -7,8 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 /**
  * Service Exception
  *
- * @author Yan
- * @version $Author: yanfangjun $ $Revision: 1.16 $ $Date: 2012/07/18 10:44:35 $
+ * @author yan
  */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties({ "cause", "localizedMessage", "stackTrace", "suppressed" })

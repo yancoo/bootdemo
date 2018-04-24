@@ -10,10 +10,12 @@ import javax.servlet.ServletException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- *
+ * Exception Helper
+ * 
  * @author yan
  */
 public class ExceptionHelper {
@@ -38,17 +40,9 @@ public class ExceptionHelper {
 		if (log.isDebugEnabled()) {
 			log.debug("generate " + serviceException);
 		}
-		ObjectMapper mapper = new ObjectMapper();
-		// jsonObject.put("exception", serviceException.getTypeName());
-		// jsonObject.put("message", serviceException.getMessage() != null ?
-		// serviceException.getMessage() : "");
-		// if (serviceException.getArgs() != null) {
-		// jsonObject.put("args", serviceException.getArgs());
-		// }
-
 		try {
-			return mapper.writeValueAsString(serviceException);
-		} catch (Exception e) {
+			return new ObjectMapper().writeValueAsString(serviceException);
+		} catch (JsonProcessingException e) {
 			log.error("mapper.writeValueAsString exception " + serviceException.getMessage(), e);
 			return null;
 		}

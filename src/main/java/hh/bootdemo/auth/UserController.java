@@ -23,6 +23,7 @@ public class UserController {
 		return null;
 	}
 
+	// test
 	@PostMapping("admin/addRole")
 	public void addRole(@RequestBody User user) {
 		log.info(user);

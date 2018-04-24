@@ -61,12 +61,4 @@ public class SessionCache {
 		return sessions;
 	}
 
-	public static void getStatus(StringBuilder sb, boolean detail) {
-		sb.append("sessions: " + sessions.size()).append("\n");
-		if (detail) {
-			for (Session session : sessions.values()) {
-				sb.append(session).append("\n");
-			}
-		}
-	}
 }

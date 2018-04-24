@@ -24,11 +24,12 @@ import hh.bootdemo.utils.StringUtils;
 
 /**
  * 各类项目与第三方接口相关的登录Controller
+ * <p>
+ * 和POST form login不同，通常为GET方式登录
+ * </p>
  * 
  * @author yan
  */
-// 改用@RestController，这里有个坑，使用 @Controller时，访问/loginProject会报错"This may be the
-// result of an unspecified view"
 @RestController
 public class ProjectAuthController {
 	protected final Log log = LogFactory.getLog(getClass());
@@ -36,6 +37,14 @@ public class ProjectAuthController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * test: http://localhost:8080/loginProject?username=user&password=user
+	 * 
+	 * @param request
+	 * @param username
+	 * @param password
+	 * @return 重定向到首页，根据实际接口需求再行指定
+	 */
 	@GetMapping("loginProject")
 	public ModelAndView loginProject(HttpServletRequest request, String username, String password) {
 		if (username == null) {
@@ -78,6 +87,5 @@ public class ProjectAuthController {
 	@GetMapping("exceptionTest")
 	public void exceptionTest() {
 		throw new ServiceException(CommonExceptionType.configError, new String[] { "a", "b" });
-
 	}
 }

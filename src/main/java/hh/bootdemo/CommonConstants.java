@@ -1,7 +1,8 @@
 package hh.bootdemo;
 
 /**
- *
+ * Common Constants
+ * 
  * @author yan
  */
 public class CommonConstants {
